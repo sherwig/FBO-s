@@ -28,10 +28,10 @@ void main() {
     pos.z+=cos(pos.a*3.0)*.3;
 
 
-    if(pos.a==1.0)
-    {
-      posOld.a=sin(vUv.x*6.0);
-    }
+    // if(pos.a==1.0)
+    // {
+    //   posOld.a=sin(vUv.x*6.0);
+    // }
     // posOld.y+=sin(posOld.a*2.0+uTime)*.3;
     // posOld.x+=sin(posOld.a*4.0+uTime)*.3;
     // posOld.z+=cos(posOld.a*1.0+uTime)*.3;

@@ -16,8 +16,6 @@ import gradientImage from '../static/textures/gradient.png'
 // import fingerprintImage from '../static/textures/fingerprint.png'
 // import grayscaleImage from '../static/textures/grayscale.jpg'
 
-//Github Check
-
 var fboScene, orthoCamera, rtt, particles, gl;
 var positions2, positions;
 var framecount = 1;
@@ -66,7 +64,6 @@ function initParticles(width, height, renderer, simulationMaterial, renderMateri
   var particleCount = (width * height);
   var vertices = new Float32Array(particleCount * 3);
   for (var i = 0; i < particleCount; i++) {
-
     var i3 = i * 3;
     vertices[i3] = (i % width) / width;
     vertices[i3 + 1] = (i / width) / height;
@@ -167,9 +164,9 @@ function init(img1, img2) {
   var particleCount = width * height;
   // var width = 512;
   // var height = 512;
-  var elevation = 128;
-  var data = getImage(img1, width, height, elevation);
-  var data2 = getImage(img1, width, height, elevation);
+  // var elevation = 128;
+  // var data = getImage(img1, width, height, elevation);
+  // var data2 = getImage(img1, width, height, elevation);
 
 
   positions = new THREE.WebGLRenderTarget(width, height, {
@@ -293,17 +290,17 @@ function init(img1, img2) {
   plane.position.y = 100;
   scene.add(plane);
 
-  const geometry2 = new THREE.PlaneGeometry(50, 50, 1);
-  const plane2 = new THREE.Mesh(geometry2, positions);
-  plane2.position.y = 100;
-  plane2.position.x = 100;
-  scene.add(plane2);
-
-  const geometry3 = new THREE.PlaneGeometry(50, 50, 1);
-  const plane3 = new THREE.Mesh(geometry, positions2);
-  plane3.position.y = 100;
-  plane3.position.x = -100;
-  scene.add(plane3);
+  // const geometry2 = new THREE.PlaneGeometry(50, 50, 1);
+  // const plane2 = new THREE.Mesh(geometry2, positions);
+  // plane2.position.y = 100;
+  // plane2.position.x = 100;
+  // scene.add(plane2);
+  //
+  // const geometry3 = new THREE.PlaneGeometry(50, 50, 1);
+  // const plane3 = new THREE.Mesh(geometry, positions2);
+  // plane3.position.y = 100;
+  // plane3.position.x = -100;
+  // scene.add(plane3);
 
   //init the FBO
   initParticles(width, height, renderer, simulationShader, renderShader);
@@ -426,7 +423,7 @@ function update() {
 
   updateFBO();
 
-  particles.position.z = -128;
+  // particles.position.z = -128;
   // particles.rotation.
   particles.rotation.y = -Math.PI / 4;
   camera.lookAt(particles.position);
