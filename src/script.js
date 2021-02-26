@@ -135,7 +135,7 @@ function imgDidLoad() {
   if (counter == 2) init(img1, img2);
 }
 
-const texture = new THREE.TextureLoader().load('textures/color.jpeg');
+const texture = new THREE.TextureLoader().load('textures/gradient.png');
 // console.log(texture);
 
 
