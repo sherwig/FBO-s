@@ -19,17 +19,26 @@ void main() {
     {
       pos.a=sin(vUv.x*6.0);
     }
-    pos.y+=sin(pos.a*5.0+uTime)*.3;
-    pos.x+=sin(pos.a*4.0+uTime)*.3;
-    pos.z+=cos(pos.a*3.0+uTime)*.3;
+    // pos.y+=sin(pos.a*5.0+uTime)*.3;
+    // pos.x+=sin(pos.a*4.0+uTime)*.3;
+    // pos.z+=cos(pos.a*3.0+uTime)*.3;
+
+    pos.y+=sin(pos.a*5.0)*.3;
+    pos.x+=sin(pos.a*4.0)*.3;
+    pos.z+=cos(pos.a*3.0)*.3;
+
 
     if(pos.a==1.0)
     {
       posOld.a=sin(vUv.x*6.0);
     }
-    posOld.y+=sin(posOld.a*2.0+uTime)*.3;
-    posOld.x+=sin(posOld.a*4.0+uTime)*.3;
-    posOld.z+=cos(posOld.a*1.0+uTime)*.3;
+    // posOld.y+=sin(posOld.a*2.0+uTime)*.3;
+    // posOld.x+=sin(posOld.a*4.0+uTime)*.3;
+    // posOld.z+=cos(posOld.a*1.0+uTime)*.3;
+
+    posOld.y+=sin(posOld.a*2.0)*.3;
+    posOld.x+=sin(posOld.a*4.0)*.3;
+    posOld.z+=cos(posOld.a*1.0)*.3;
 
 
     // vElevation+=pos.y;
@@ -41,9 +50,13 @@ void main() {
       speed.a=cos(vUv.y*3.0);
     }
 
-    speed.y+=cos(speed.a*4.0+uTime)*.3;
-    speed.x+=sin(speed.a*6.0+uTime)*.3;
-    speed.z+=cos(speed.a*6.0+uTime)*.3;
+    // speed.y+=cos(speed.a*4.0+uTime)*.3;
+    // speed.x+=sin(speed.a*6.0+uTime)*.3;
+    // speed.z+=cos(speed.a*6.0+uTime)*.3;
+
+    speed.y+=cos(speed.a*4.0)*.3;
+    speed.x+=sin(speed.a*6.0)*.3;
+    speed.z+=cos(speed.a*6.0)*.3;
 
     vec4 elevation = texture2D( textureB, vUv).rgba;
     if(speed.a==1.0)
@@ -51,14 +64,15 @@ void main() {
       elevation.a=cos(vUv.y*3.0)*.3;
     }
 
-    elevation.z+=cos(elevation.a*4.0+uTime)*.3;
+    // elevation.z+=cos(elevation.a*4.0+uTime)*.3;
 
-    vec4 finalColor = mix( pos, speed, sin(uTime*0.3) );
-    finalColor = mix (finalColor, elevation, cos(uTime*0.3));
+    elevation.z+=cos(elevation.a*4.0)*.3;
 
-    finalColor.x+=0.5;
-    finalColor.y+=0.2;
-    finalColor.z+=0.9;
+
+    vec4 finalColor = mix( pos, elevation, sin(uTime*0.3) );
+    // finalColor = mix (finalColor, elevation, cos(uTime*0.3));
+    // finalColor = mix (finalColor, posOld, sin(uTime*0.3));
+
 
     // pos+=posOld+0.1;
     // pos += posOld * 0.001;

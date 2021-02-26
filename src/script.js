@@ -85,12 +85,8 @@ function initParticles(width, height, renderer, simulationMaterial, renderMateri
   }
   geometry.setAttribute('colorUV', new THREE.BufferAttribute(colorUVArray, 2));
 
-
-  // console.log(colorUArray);
   //the rendermaterial is used to render the particles
   particles = new THREE.Points(geometry, renderMaterial);
-  // renderer = renderer;
-
 };
 
 //7 update loop
@@ -411,10 +407,6 @@ function onResize() {
 function update() {
   requestAnimationFrame(update);
 
-  //update the simulation
-
-
-  //update mesh
   // particles.rotation.x+= Math.PI / 180 * .5;
   // particles.rotation.y -= Math.PI / 180 * .5;
   simulationShader.uniforms.uTime.value = performance.now() / 1000;
@@ -431,8 +423,6 @@ function update() {
     renderShader.uniforms.positions.texture = positions2;
 
   }
-
-  // console.log(simulationShader.uniforms.positions.texture);
 
   updateFBO();
 
